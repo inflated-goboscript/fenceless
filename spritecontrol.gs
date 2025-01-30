@@ -3,3 +3,12 @@
 
 ################################################################
 
+%include backpack/spritecontrol/spritecontrol/cosdata
+
+%include backpack/spritecontrol/spritecontrol/fwhirl
+
+%include backpack/spritecontrol/spritecontrol/layer
+
+%include backpack/spritecontrol/spritecontrol/pos_hack
+
+%include backpack/spritecontrol/spritecontrol/soundcontrol
