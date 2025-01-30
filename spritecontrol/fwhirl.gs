@@ -5,7 +5,9 @@
 # fisheye
 
 %define NORM_FISHEYE(f) (((f) + 100) / 100)
+
 %define DENORM_FISHEYE(f) ((f) * 100 - 100)
+
 func apply_fisheye(f, Polar p) Polar {
     return Polar{
         r: POW(2 * $p.r, 1 / NORM_FISHEYE($f)) / 2,
@@ -21,7 +23,9 @@ func inverse_fisheye(Polar old, Polar new) {
 # whirl
 
 %define NORM_WHIRL(w) ((w) * 0.01745329251) # pi / 180
+
 %define DENORM_WHIRL(w) ((w) / 0.01745329251)
+
 func apply_whirl(w, Polar p) Polar {
     return Polar{
         r: $p.r,
