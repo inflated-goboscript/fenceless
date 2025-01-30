@@ -1,4 +1,4 @@
-costumes "backpack/spritecontrol/spritecontrol/assets/*.svg*/";
+costumes "backpack/spritecontrol/spritecontrol/assets/*.svg";
 
 struct pos {
     # Struct storing a sprite position - x, y, size & dir
