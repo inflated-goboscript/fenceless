@@ -12,3 +12,5 @@
 %include backpack/spritecontrol/spritecontrol/pos_hack
 
 %include backpack/spritecontrol/spritecontrol/soundcontrol
+
+%include backpack/spritecontrol/spritecontrol/pos2geo2d
