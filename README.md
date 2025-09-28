@@ -1,18 +1,6 @@
-# spritecontrol.gs
-This is a sprite control library which is built for [goboscript](https://github.com/aspizu/goboscript).
-It is designed to be used with [backpack](https://github.com/aspizu/backpack)
+# fenceless.gs
+This is a library for bypassing fencing which is built for [goboscript](https://github.com/aspizu/goboscript).
+It is designed to be used with [inflator](https://github.com/inflated-goboscript/inflator)
 
 ## Installation
-To use this, make sure to install [backpack](https://github.com/aspizu/backpack)
-
-You can use the spritecontrol library by adding these lines to goboscript.toml:
-```toml
-[dependencies]
-spritecontrol = "https://github.com/FAReTek1/spritecontrol@<the version you want to use>"
-```
-
-Then, add this %include to your gs file:
-you can also use this to just %include everything
-```rs
-%include backpack/spritecontrol/spritecontrol
-```
+To use this, make sure to install [inflator](https://github.com/inflated-goboscript/inflator)

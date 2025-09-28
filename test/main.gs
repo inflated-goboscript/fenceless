@@ -1,4 +1,4 @@
-%include backpack/spritecontrol/spritecontrol
+%include inflator/spritecontrol
 
 costumes "blank.svg";
 
