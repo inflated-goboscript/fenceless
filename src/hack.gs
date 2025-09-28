@@ -22,12 +22,12 @@ proc size_hack size {
 proc pos_size_hack x, y, size {
     local old_costume = costume_number();
     
-    switch_costume "size0";
+    switch_costume "fenceless.gs//size0";
     set_size "Infinity";
 
     goto $x, $y;
 
-    switch_costume "size" & ($size < 100) + ($size < 1);
+    switch_costume "fenceless.gs//size" & ($size < 100) + ($size < 1);
     set_size $size;
 
     switch_costume old_costume;
