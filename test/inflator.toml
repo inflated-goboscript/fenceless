@@ -1,6 +1,7 @@
 # inflator.toml syntax documentation: https://github.com/inflated-goboscript/inflator#inflator
-name = "fenceless"
-version = "v0.1.0"
+name = "test"
+version = "v0.0.0"
 username = "inflated-goboscript"
 
 [dependencies]
+fenceless = ".."

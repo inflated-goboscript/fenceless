@@ -1,4 +1,4 @@
-%include inflator/spritecontrol
+%include inflator/fenceless
 
 costumes "blank.svg";
 
