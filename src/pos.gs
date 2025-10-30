@@ -4,6 +4,8 @@ struct pos {
     s, # size
     d  # direction
 }
+%define pos(_x,_y,_s,_d) (pos{x:_x,y:_y,s:_s,d:_d})
+
 func pos_from_node(Node p, s, d) pos {
     return pos{
         x: $p.x, y: $p.y, s:$s, d: $d
