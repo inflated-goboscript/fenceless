@@ -1,54 +1,47 @@
 # bypass fencing
+# !> pref=fnc
+# !> author=faretek
+# !> credits=
+# !> desc=Bypass sprite fencing
 
-proc goto_pos pos pos {
-    position $pos.x, $pos.y, $pos.s, $pos.d;
-}
+%define _FNC_HACK_SWITCH_COSTUME_FOR_SIZE(s) switch_costume "fenceless.gs//size" & (s < 100) + (s < 1); set_size s
 
-proc change_xy dx, dy {
-    # Even with tw no fencing enabled, this is not equivalent to change x by dx; change y by dy;
-    # because it causes differences when the pen is down
-    pos_hack x_position() + $dx, y_position() + $dy;
-}
+%define FNC_POS_HACK switch_costume "fenceless.gs//size0"; set_size "Infinity"
 
-proc size_hack size {
+proc fnc_set_size size {
     local old_costume = costume_number();
-    
-    switch_costume "size" & ($size < 100) + ($size < 1);
-    set_size $size;
-
+    _FNC_HACK_SWITCH_COSTUME_FOR_SIZE($size);
     switch_costume old_costume;
 }
 
-proc pos_size_hack x, y, size {
+proc fnc_goto_set_size x, y, size {
     local old_costume = costume_number();
-    
-    switch_costume "fenceless.gs//size0";
-    set_size "Infinity";
 
+    FNC_POS_HACK;
     goto $x, $y;
 
-    switch_costume "fenceless.gs//size" & ($size < 100) + ($size < 1);
-    set_size $size;
-
+    _FNC_HACK_SWITCH_COSTUME_FOR_SIZE($size);
     switch_costume old_costume;
 }
 
-proc pos_hack x, y {
-    # Just call the other function. It's easier and we'd have to store the size anyway
-    pos_size_hack $x, $y, size();
+proc fnc_goto x, y {
+    fnc_goto_set_size $x, $y, size();
+}
+proc fnc_v2_goto Vec2 v {
+    fnc_goto_set_size $v.x, $v.y, size();
 }
 
-proc position x, y, size, dir {
-    # Set x, y, size and dir all in one procedure
-    pos_size_hack $x, $y, $size;
-    point_in_direction $dir;
+proc fnc_change_xy dx, dy {
+    fnc_goto x_position() + $dx, 
+             y_position() + $dy;
 }
 
-proc hack_steps steps {
-    change_xy $steps * sin(direction()),
-              $steps * cos(direction());
+proc fnc_move_steps steps {
+    fnc_change_xy sin(direction()) * $steps,
+                  cos(direction()) * $steps;
 }
 
-%define RESET_POS position 0, 0, 100, 90;
-
-# You can find the stretch script 'goto_pos_stretch' in the cosfx library (hopefully exists)
+proc fnc_goto_pos pos p {
+    fnc_goto_set_size $p.x, $p.y, abs($p.s);
+    point_in_direction $p.d + 180 * ($p.s < 0);
+}
